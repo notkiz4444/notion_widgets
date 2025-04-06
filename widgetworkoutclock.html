@@ -82,12 +82,12 @@
           transform: scale(1.05);
       }
 
-      .pause-button {
+      .-button {
         background-color: #f6e05e; /* Yellow */
         color: #191919;
       }
 
-      .pause-button:hover {
+      .-button:hover {
           background-color: #d69e2e;
           transform: scale(1.05);
       }
@@ -153,9 +153,9 @@
         <div class="rep-counter">Reps: 0</div>
         <div class="button-container">
             <button id="start" class="start-button primary-button">Start</button>
-            <button id="pause" class="pause-button primary-button" style="display: none;">Pause</button>
-            <button id="resume" class="resume-button primary-button" style="display: none;">Resume</button>
-            <button id="reset" class="reset-button primary-button">Reset</button>
+            <button id="pause" class="pause-button primary-button" style="display: none;">Pausa</button>
+            <button id="resume" class="resume-button primary-button" style="display: none;">Continuar</button>
+            <button id="reset" class="reset-button primary-button">Reiniciar</button>
         </div>
     </div>
 
@@ -237,12 +237,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Rest Timer functions ---
     function updateRestTimer() {
         restTime--;
-        restTimerDisplay.textContent = `Rest: ${restTime}`;
+        restTimerDisplay.textContent = `Descansar: ${restTime}`;
 
         if (restTime <= 0) {
             clearInterval(restInterval);
             restTime = 0;
-            restTimerDisplay.textContent = `Rest: ${restTime}`;
+            restTimerDisplay.textContent = `Descansar: ${restTime}`;
             restFinished = true;
             pauseButton.style.display = 'none';
             resumeButton.style.display = 'inline-flex';
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resting = true; // Set resting to true
         pauseButton.style.display = 'none'; // Hide pause button
         resumeButton.style.display = 'inline-flex'; // Show resume button
-        restTimerDisplay.textContent = `Rest: ${restTime}`;
+        restTimerDisplay.textContent = `Descansar: ${restTime}`;
         restInterval = setInterval(updateRestTimer, 1000);
     }
 

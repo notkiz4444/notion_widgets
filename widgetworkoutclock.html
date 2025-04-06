@@ -150,7 +150,7 @@
     <div class="timer-container">
         <div class="timer">00:00</div>
         <div class="rest-timer" id="restTimer"></div>
-        <div class="rep-counter">Reps: 0</div>
+        <div class="rep-counter">Set: 0</div>
         <div class="button-container">
             <button id="start" class="start-button primary-button">Start</button>
             <button id="pause" class="pause-button primary-button" style="display: none;">Pausa</button>
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         timerDisplay.textContent = "00:00";
         restTimerDisplay.textContent = "";
-        repsDisplay.textContent = "Reps: 0";
+        repsDisplay.textContent = "Set: 0";
 
         startButton.style.display = 'inline-flex';
         pauseButton.style.display = 'none';
@@ -266,6 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
     pauseButton.addEventListener('click', () => {
         if (timerRunning) {
             startRestTimer();
+            reps++;
+            repsDisplay.textContent = `Set: ${reps}`;
         }
     });
 
@@ -274,8 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
             startTimer();
             resumeButton.style.display = 'none';
             pauseButton.style.display = 'inline-flex';
-            reps++;
-            repsDisplay.textContent = `Reps: ${reps}`;
             restTime = 120;
             restTimerDisplay.textContent = "";
             restFinished = false;
@@ -286,8 +286,6 @@ document.addEventListener('DOMContentLoaded', () => {
             startTimer();
             resumeButton.style.display = 'none';
             pauseButton.style.display = 'inline-flex';
-            reps++;
-            repsDisplay.textContent = `Reps: ${reps}`;
             resting = false;
         }
     });
